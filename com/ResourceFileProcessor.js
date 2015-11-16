@@ -17,10 +17,12 @@ Array.prototype.contains = function (obj) {
     return false;
 };
 
+
+//静态文件处理器
 function ResourceFileProcessor(pathname,response){
 
     console.log("Request for "+ pathname + " received.");
-    var filename = "./www/"+ pathname;
+    var filename = config.rootPath + pathname;
     ProcessFilePath(filename,response);
 }
 
@@ -61,7 +63,7 @@ function ProcessFilePath(filename,response){
                 }
             });
         }else{
-            ProcessFile('./www/404.html',response);
+            ProcessFile(config.rootPath +'404.html',response);
         }
     });
 }
